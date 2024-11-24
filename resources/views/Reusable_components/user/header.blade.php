@@ -1,3 +1,20 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#SearchIcon').click(function (e) {
+            var searchString = $('.searchstring').val();
+            console.log(searchString);
+            if(searchString=='') 
+                {
+                    window.location.replace("/");
+                } 
+                else {
+                    window.location.replace("/shop/"+searchString);
+                }
+        })
+    })
+</script>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -41,20 +58,21 @@
                     </li>
                 @endauth
                 @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">Signup</a>
-                </li>
-            @endguest
-                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Signup</a>
+                    </li>
+                @endguest
+
 
             </ul>
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <input class="form-control me-2 searchstring" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="button" id="SearchIcon">Search</button>
             </form>
         </div>
     </div>
 </nav>
+

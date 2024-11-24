@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Hash;
-
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,8 +27,4 @@ Route::post('/registration', [AuthController::class, 'registerUser'])->name('reg
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 
-Route::get('/test', function () {
-    $hashedPassword = Hash::make('123456');
-    dd($hashedPassword);
-    return;
-});
+Route::get('/shop/{purl}', [ProductController::class, 'shop']);
