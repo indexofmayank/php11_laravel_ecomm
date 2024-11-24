@@ -1,10 +1,3 @@
-@extends('layouts.app')
-@section('title') Product search - shopnow @endsection
-@section('keyword') Product Listing @endsection
-@section('description') Product Listing @endsection
-@include('Reusable_components.user.header')
-
-@section('content')
 <div class="container m-3">
     <div class="text-center mb-4">
         <div>
@@ -49,5 +42,3 @@
     </div>
 
 </div>
-@include('Reusable_components.user.footer')
-@endsection

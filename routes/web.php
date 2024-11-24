@@ -4,9 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\ProductController;
+use App\Models\Products;
+
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $products = Products::paginate(6);
+    return view('welcome', ['products' => $products]);
 })->name('welcome');
 
 Route::get('/login', function () {
@@ -26,5 +30,14 @@ Route::post('/registration', [AuthController::class, 'registerUser'])->name('reg
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
+Route::get('/about', function () {
+    return view('pages/about_page');
+});
+Route::get('/ourteam', function () {
+    return view('pages/our_team_page');
+});
+Route::get('/help', function () {
+    return view('pages/contact_page');
+});
 
 Route::get('/shop/{purl}', [ProductController::class, 'shop']);
